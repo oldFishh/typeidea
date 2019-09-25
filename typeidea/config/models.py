@@ -25,7 +25,7 @@ class Link(models.Model):
 class SideBar(models.Model):
     STATUS_SHOW = 1
     STATUS_HIDE = 0
-    STAUS_ITEMS = (
+    STATUS_ITEMS = (
         (STATUS_SHOW, '展示'),
         (STATUS_HIDE, '隐藏')
     )
@@ -40,7 +40,7 @@ class SideBar(models.Model):
                                                verbose_name="展示类型")
     content = models.CharField(max_length=500, blank=True, verbose_name="内容",
                                help_text="如果设置的不是HTML类型，可为空")
-    status = models.PositiveIntegerField(default=STATUS_SHOW, choices=STAUS_ITEMS,
+    status = models.PositiveIntegerField(default=STATUS_SHOW, choices=STATUS_ITEMS,
                                          verbose_name="状态")
     owner = models.ForeignKey(User, verbose_name="作者")
     create_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
